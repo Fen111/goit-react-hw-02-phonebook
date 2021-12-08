@@ -24,14 +24,17 @@ export default class ContactForm extends Component {
     this.setState({ name: '', number: '' });
   };
 
-  nameId = nanoid(5);
-  numberId = nanoid(5);
+  nameId = nanoid();
+  numberId = nanoid();
 
   render() {
     return (
       <form className={s.form} onSubmit={this.handleSubmit}>
-        <label htmlFor={this.nameId}>Name</label>
+        <label className={s.label} htmlFor={this.nameId}>
+          Name
+        </label>
         <input
+          className={s.input}
           type="text"
           name="name"
           value={this.state.name}
@@ -41,8 +44,11 @@ export default class ContactForm extends Component {
           onChange={this.handleChange}
           id={this.nameId}
         />
-        <label htmlFor={this.numberId}>Number</label>
+        <label className={s.label} htmlFor={this.numberId}>
+          Number
+        </label>
         <input
+          className={s.input}
           type="tel"
           name="number"
           value={this.state.number}
@@ -52,7 +58,9 @@ export default class ContactForm extends Component {
           onChange={this.handleChange}
           id={this.numberId}
         />
-        <button type="submit">Add contact</button>
+        <button className={s.formButton} type="submit">
+          Add contact
+        </button>
       </form>
     );
   }
